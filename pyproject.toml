@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bods-opencorporates"
+version = "0.1.0"
+description = "Transform OpenCorporates data into Beneficial Ownership Data Standard (BODS) v0.4 format"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "Stephen Abbott Pugh"},
+]
+dependencies = [
+    "requests>=2.31",
+    "pycountry>=24.6",
+    "click>=8.1",
+    "python-dateutil>=2.8",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "libcovebods>=0.14",
+]
+
+[project.scripts]
+bods-oc = "bods_opencorporates.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
