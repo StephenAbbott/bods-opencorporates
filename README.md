@@ -2,6 +2,8 @@
 
 Transform [OpenCorporates](https://opencorporates.com/) data into [Beneficial Ownership Data Standard (BODS)](https://standard.openownership.org/) v0.4 format.
 
+Part of the [BODS Interoperability Toolkit](https://github.com/StephenAbbott/bods-interoperability-toolkit).
+
 ## Overview
 
 This pipeline ingests OpenCorporates data — via the REST API or from bulk CSV exports — and produces BODS v0.4 compliant statements, including:
