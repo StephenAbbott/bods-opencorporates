@@ -12,6 +12,8 @@ This pipeline ingests OpenCorporates data — via the REST API or from bulk CSV 
 - **Person statements** for officers and individuals
 - **Ownership-or-control statements** linking persons to entities, with interest details
 
+OpenCorporates data dictionaries: https://knowledge.opencorporates.com/article-categories/dictionaries/
+
 ## Installation
 
 ```bash
