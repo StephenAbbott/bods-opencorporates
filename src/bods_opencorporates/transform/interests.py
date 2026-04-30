@@ -45,14 +45,14 @@ POSITION_TO_INTEREST_TYPE: dict[str, str] = {
     "aufsichtsratsmitglied": "boardMember",  # German
     "bestuurslid": "boardMember",  # Dutch
     # Board chair
-    "chairman": "boardMember",
-    "chairwoman": "boardMember",
-    "chairperson": "boardMember",
-    "chair": "boardMember",
-    "president": "boardMember",
+    "chairman": "boardChair",      # was "boardMember"
+    "chairwoman": "boardChair",    # was "boardMember"
+    "chairperson": "boardChair",   # was "boardMember"
+    "chair": "boardChair",         # was "boardMember"
+    "president": "boardChair",     # was "boardMember"
     "vice president": "boardMember",
-    "vice chairman": "boardMember",
-    "deputy chairman": "boardMember",
+    "vice chairman": "boardChair", # was "boardMember"
+    "deputy chairman": "boardChair", # was "boardMember"
     "vorsitzender": "boardMember",  # German
     "voorzitter": "boardMember",  # Dutch
     "presidente": "boardMember",  # Italian/Spanish/Portuguese
@@ -111,18 +111,6 @@ POSITION_TO_INTEREST_TYPE: dict[str, str] = {
     "founder": "otherInfluenceOrControl",
 }
 
-# Positions that indicate beneficial ownership or control
-BENEFICIAL_POSITIONS: set[str] = {
-    "shareholding",
-    "votingRights",
-    "appointmentOfBoard",
-    "otherInfluenceOrControl",
-    "settlor",
-    "trustee",
-    "protector",
-}
-
-
 def match_position(position: str) -> str:
     """Match an officer position string to a BODS interest type.
 
@@ -157,7 +145,7 @@ def match_position(position: str) -> str:
     if re.search(r"\bmanag", normalized, re.IGNORECASE):
         return "seniorManagingOfficial"
     if re.search(r"\bchair", normalized, re.IGNORECASE):
-        return "boardMember"
+        return "boardChair"  # was "boardMember"
     if re.search(r"\btrustee", normalized, re.IGNORECASE):
         return "trustee"
     if re.search(r"\bnominee", normalized, re.IGNORECASE):
